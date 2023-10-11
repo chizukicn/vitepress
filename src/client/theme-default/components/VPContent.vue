@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { watchEffect } from 'vue'
 import NotFound from '../NotFound.vue'
 import { useData } from '../composables/data'
 import { useSidebar } from '../composables/sidebar'
@@ -8,6 +9,12 @@ import VPPage from './VPPage.vue'
 
 const { page, frontmatter } = useData()
 const { hasSidebar } = useSidebar()
+
+
+watchEffect(()=>{
+  console.log("frontmatter.layout", frontmatter.value.layout)
+})
+
 </script>
 
 <template>
